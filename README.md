@@ -1,6 +1,6 @@
-# C_language_practices
+C_language_practices
 self_learning about language C++
-# 学习c语言中的loop（循环）
+### 学习c语言中的loop（循环）
 循环的嵌套：多层循环
 ```c
 #include<stdio.h>
@@ -61,7 +61,7 @@ int main()
   return 0;
 }
 ```
-# 另外一种方式执行代码，就是使用goto语句/由于goto语句过于灵活，所以不建议经常使用🕴
+### 另外一种方式执行代码，就是使用goto语句/由于goto语句过于灵活，所以不建议经常使用🕴
 ```
 #include<stdio.h>
 int main(){
@@ -77,7 +77,7 @@ int main(){
           return 0;
 }
 ```
-# 缓冲区不会自动清理，所以有的时候会导致代码的逻辑和实际并不一致B
+### 缓冲区不会自动清理，所以有的时候会导致代码的逻辑和实际并不一致
 ```
 /*
 内核，有输出的缓冲区
@@ -98,7 +98,7 @@ int main(){
   return 0;
 }
 ```
-# 解决输入字符的时候错误的问题：
+### 解决输入字符的时候错误的问题：
 ```
 #include<stdio.h>
 #include<unistd.h>
