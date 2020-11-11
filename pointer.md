@@ -132,3 +132,94 @@ PS D:\Learn\C++学习\github\C_language_practices> cd "d:\Learn\C++学习\github
 交换后 p1的地址为 3
 交换后 p2的地址为 2
 ```
+
+## 指针的运算
+```c
+#include<stdio.h>
+int main()
+{
+    int a = 1;
+    int b = 2;
+    int c = 3;
+
+    printf("&a = %p\n",&a);
+    printf("&b = %p\n",&b);
+    printf("&c = %p\n",&c);
+    return 0;
+}
+```
+- output
+```bash
+PS D:\Learn\C++学习\github\C_language_practices> cd "d:\Learn\C++学习\github\C_language_practices\" ; if ($?) { gcc tempCodeRunnerFile.c -o tempCodeRunnerFile } ; if ($?) { .\tempCodeRunnerFile } 
+&a = 0061FF1C
+&b = 0061FF18
+&c = 0061FF14
+```
+## 指针的大小
+```c
+#include<stdio.h>
+int main()
+{
+    int a = 1;
+    char b = 2;
+    int c = 3;
+    int *pa = &a;
+    char *pb = &b;
+    printf("sizeof(pa) = %d\n",sizeof(pa));
+    printf("sizeof(pb) = %d\n",sizeof(pb));
+    return 0;
+}
+```
+- output: 指针的大小是一样的
+```bash
+PS D:\Learn\C++学习\github\C_language_practices> cd "d:\Learn\C++学习\github\C_language_practices\" ; if ($?) { gcc tempCodeRunnerFile.c -o tempCodeRunnerFile } ; if ($?) { .\tempCodeRunnerFile }
+sizeof(pa) = 4
+sizeof(pb) = 4
+```
+
+
+## 数组与指针
+```c
+#include<stdio.h>
+int main()
+{
+    int a[5];
+    char c[5];
+    int *pa = &a[5];
+    char *pc = &c[5];
+    //打印数组a中各个元素的地址：
+    for(int i = 0; i < 5;i++)
+    {
+        printf("a[%d]的地址为：%p\t",i,&a[i]);
+    }
+    printf("\n");
+    for(int i = 0; i < 5;i++)
+    {
+        printf("  pa的地址为：%p\t",&pa);
+        pa++;
+        // printf("a[%d]的地址为：%p\t",i,&a[i]);
+    }
+    printf("\n");
+    //打印数组c中各个元素的地址：
+    for(int i = 0; i < 5;i++)
+    {
+        printf("c[%d]的地址为：%p\t",i,&c[i]);
+    }
+    printf("\n");
+    for(int i = 0; i < 5;i++)
+    {
+        printf("  pc的地址为：%p\t",&pc);
+        pa++;
+        // printf("a[%d]的地址为：%p\t",i,&a[i]);
+    }
+    return 0;
+}
+```
+- output
+```bash
+PS D:\Learn\C++学习\github\C_language_practices> cd "d:\Learn\C++学习\github\C_language_practices\" ; if ($?) { gcc tempCodeRunnerFile.c -o tempCodeRunnerFile } ; if ($?) { .\tempCodeRunnerFile }
+a[0]的地址为：0061FEFC  a[1]的地址为：0061FF00  a[2]的地址为：0061FF04  a[3]的地址为：0061FF08  a[4]的地址为：0061FF0C  
+  pa的地址为：0061FEF0    pa的地址为：0061FEF0    pa的地址为：0061FEF0    pa的地址为：0061FEF0    pa的地址为：0061FEF0
+c[0]的地址为：0061FEF7  c[1]的地址为：0061FEF8  c[2]的地址为：0061FEF9  c[3]的地址为：0061FEFA  c[4]的地址为：0061FEFB
+  pc的地址为：0061FEEC    pc的地址为：0061FEEC    pc的地址为：0061FEEC    pc的地址为：0061FEEC    pc的地址为：0061FEEC
+```
