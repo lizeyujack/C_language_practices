@@ -25,7 +25,6 @@ int main()
 ```
 输出
 ```bash
-PS D:\Learn\C++学习\github\C_language_practices> cd "d:\Learn\C++学习\github\C_language_practices\" ; if ($?) { gcc tempCodeRunnerFile.c -o tempCodeRunnerFile } ; if ($?) { .\tempCodeRunnerFile }
 i 地址是0061FF18
 p=61ff18
 i = 20
@@ -126,7 +125,6 @@ int main()
 ```
 - output
 ```bash
-PS D:\Learn\C++学习\github\C_language_practices> cd "d:\Learn\C++学习\github\C_language_practices\" ; if ($?) { gcc tempCodeRunnerFile.c -o tempCodeRunnerFile } ; if ($?) { .\tempCodeRunnerFile } 
 交换前 p1的地址为 2
 交换前 p2的地址为 3
 交换后 p1的地址为 3
@@ -150,7 +148,6 @@ int main()
 ```
 - output
 ```bash
-PS D:\Learn\C++学习\github\C_language_practices> cd "d:\Learn\C++学习\github\C_language_practices\" ; if ($?) { gcc tempCodeRunnerFile.c -o tempCodeRunnerFile } ; if ($?) { .\tempCodeRunnerFile } 
 &a = 0061FF1C
 &b = 0061FF18
 &c = 0061FF14
@@ -172,7 +169,6 @@ int main()
 ```
 - output: 指针的大小是一样的
 ```bash
-PS D:\Learn\C++学习\github\C_language_practices> cd "d:\Learn\C++学习\github\C_language_practices\" ; if ($?) { gcc tempCodeRunnerFile.c -o tempCodeRunnerFile } ; if ($?) { .\tempCodeRunnerFile }
 sizeof(pa) = 4
 sizeof(pb) = 4
 ```
@@ -217,9 +213,39 @@ int main()
 ```
 - output
 ```bash
-PS D:\Learn\C++学习\github\C_language_practices> cd "d:\Learn\C++学习\github\C_language_practices\" ; if ($?) { gcc tempCodeRunnerFile.c -o tempCodeRunnerFile } ; if ($?) { .\tempCodeRunnerFile }
 a[0]的地址为：0061FEFC  a[1]的地址为：0061FF00  a[2]的地址为：0061FF04  a[3]的地址为：0061FF08  a[4]的地址为：0061FF0C  
   pa的地址为：0061FEF0    pa的地址为：0061FEF0    pa的地址为：0061FEF0    pa的地址为：0061FEF0    pa的地址为：0061FEF0
 c[0]的地址为：0061FEF7  c[1]的地址为：0061FEF8  c[2]的地址为：0061FEF9  c[3]的地址为：0061FEFA  c[4]的地址为：0061FEFB
   pc的地址为：0061FEEC    pc的地址为：0061FEEC    pc的地址为：0061FEEC    pc的地址为：0061FEEC    pc的地址为：0061FEEC
+```
+
+## 由于数组相当于已知函数的地址，所以可以通过void函数直接修改数组内部的值
+```c
+#include<stdio.h>
+void func(int b[]);
+void func(int b[])
+{
+    for(int i = 0; i<5; i++)
+    {
+        b[i] = i;
+    }
+}
+int main()
+{
+    int a[5] = {10,20,30,40,50};
+    func(a);
+    for(int i = 0; i<5; i++)
+    {
+        printf("a[%d] = %d\n",i,a[i]);
+    }
+    return 0;
+}
+```
+- output
+```bash
+a[0] = 0
+a[1] = 1
+a[2] = 2
+a[3] = 3
+a[4] = 4
 ```

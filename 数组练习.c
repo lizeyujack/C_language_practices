@@ -4,6 +4,7 @@ void input(int a[],int n)
 {
     for(int i=0;i<5;i++)
     {
+        printf("input each dibit here:\n")
         scanf("%d",&a[i]);
     }
 }

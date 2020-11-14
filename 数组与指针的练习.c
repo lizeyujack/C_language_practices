@@ -1,10 +1,10 @@
 #include<stdio.h>
 int main()
 {
-    int a[5];
+    int a[5] = {1,2,3,4,5};
     char c[5];
-    int *pa = &a[5];
-    char *pc = &c[5];
+    int *pa = a;
+    char *pc = c;
     //打印数组a中各个元素的地址：
     for(int i = 0; i < 5;i++)
     {
