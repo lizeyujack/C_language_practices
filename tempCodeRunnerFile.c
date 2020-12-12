@@ -1,13 +1,9 @@
-#include<stdio.h>
+#include <stdio.h>
 int main()
 {
-    int b = 30;
-    int c = 0;
-    // int * const pb = &b;//不能修改pb指针的信息
-    // const int * pb = &b;//不能修改pb指针指向的值
-    const int const * pb = b;
-    pb = 10;
-    
-    printf("*pb = %d\n",*pb);
+    int a[5] = {0};
+    int *pa = a;
+    printf("sizeof(a) = %d\n",sizeof(a));
+    printf("sizeof(pa) = %d\n",sizeof(pa));
     return 0;
 }
